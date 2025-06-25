@@ -32,7 +32,7 @@ jobs:
       - name: Execute Plugin
         run: ./gradlew dependencyUpdates
 
-      - name: Upload HTML Report
+      - name: Upload Report
         uses: actions/upload-artifact@v4
         with:
           name: dependency-report
