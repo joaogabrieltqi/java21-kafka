@@ -2,9 +2,9 @@
 
 ## Introdução
 
-Esta prova de conceito busca configurar o Spring e Kafka com o mínimo de classes possíveis, mas ainda assim oferencendo:
+Esta prova de conceito busca configurar o Spring e Kafka com o mínimo de classes possíveis, mas ainda assim oferecendo:
 
-- Java 21
+- Suporte ao Java 21
 - Suporte a SSL
 - Configuração automática do `KafkaAdmin`
 
