@@ -1,0 +1,39 @@
+name: Check Dependency Updates
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  dependencyUpdates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+
+      - name: Java Setup
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Gradle Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            gradle-${{ runner.os }}-
+
+      - name: Execute Plugin
+        run: ./gradlew dependencyUpdates
+
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-report
+          path: build/dependencyUpdates/report.html
