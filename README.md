@@ -15,3 +15,4 @@ Este repo conta com uma Action que executa o plugin [gradle-versions-plugin](htt
 ## Backlog
 
 - Inserir Spring Boot Actuator para health do Kafka
+- Criar producer para que fique como exemplo de uso também
