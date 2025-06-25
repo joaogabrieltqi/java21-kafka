@@ -2,7 +2,7 @@ name: Check Dependency Updates
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
